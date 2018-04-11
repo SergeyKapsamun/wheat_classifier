@@ -8,7 +8,6 @@ from keras.layers import Flatten
 from keras.layers import Dense
 
 
-
 def init_model():
     # Initialising the CNN
     classifier = Sequential()
@@ -55,8 +54,6 @@ training_set = train_datagen.flow_from_directory('dataset/training_set',
 target_size = (182, 182),
 batch_size = 32,
 class_mode = 'binary')
-print("datagenlen " + len(training_set[0][0]).__str__())
-print(training_set.class_indices)
 test_set = test_datagen.flow_from_directory('dataset/test_set',
 target_size = (182, 182),
 batch_size = 10,
