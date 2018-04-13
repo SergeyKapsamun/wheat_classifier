@@ -38,6 +38,7 @@ def init_model():
     return model
 
 
+# Number of gpu
 ngpus = 1
 
 # Initialising the CNN
@@ -64,7 +65,7 @@ test_datagen = ImageDataGenerator(rescale=1./255)
 training_set = train_datagen.flow_from_directory(
     'dataset/training_set',
     target_size=(128, 128),
-    batch_size=32,
+    batch_size=32 * ngpus,
     class_mode='binary'
 )
 test_set = test_datagen.flow_from_directory(
@@ -85,7 +86,7 @@ checkpoint = ModelCheckpoint(
 )
 callbacks_list = [checkpoint]
 
-# It's a trainirovka
+# training
 classifier.fit_generator(
     training_set,
     steps_per_epoch=50,

@@ -8,7 +8,6 @@ from keras.layers import MaxPooling2D
 from keras.layers import Conv2D, Dropout
 
 
-# ALL PARALLEL!!!!111111[]1[1][1]1
 def init_model():
     # Initialising the CNN
     model = Sequential()
